@@ -1,0 +1,341 @@
+/* ================================
+   GLOBAL VARIABLES (Theme Setup)
+   These are custom properties for colors, fonts, spacing, etc.
+   Makes it easy to maintain consistent design across the app.
+================================ */
+:root {
+  --primary-color: #5D3A58;   /* Deep Plum (brand color) */
+  --secondary-color: #8B5E3C; /* Warm Caramel (accent color) */
+  --text-light: #ffffff;      /* White text */
+  --text-muted: #f1e6dc;      /* Soft muted text for subtitles */
+  --box-bg: rgba(255, 255, 255, 0.12);  /* Transparent box background */
+  --box-border: rgba(255, 255, 255, 0.3); /* Light border for boxes */
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Common shadow effect */
+  --radius-lg: 20px; /* Large rounded corners */
+  --radius-md: 12px; /* Medium rounded corners */
+  --font-main: "Poppins", system-ui, -apple-system, sans-serif; /* Main font */
+}
+
+/* ================================
+   BODY STYLING
+   Sets up base layout, fonts, and background gradient
+================================ */
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 25px;
+  min-width: 320px;
+  max-width: 1200px;
+  box-sizing: border-box;
+
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, #E8DED2 100%);
+  background-attachment: fixed; /* Stays in place when scrolling */
+  background-size: cover;
+  color: var(--text-light);
+}
+
+/* ================================
+   MAIN CONTAINER
+   Holds everything inside app layout
+================================ */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background: transparent;
+}
+
+/* ================================
+   HEADER STYLES
+   Title, logo, and subtitle design
+================================ */
+.header h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.header h1 img {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* ================================
+   INPUT / OUTPUT GRID
+   Two-column layout for input (notes) and output (results)
+================================ */
+.input-output-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.input-box,
+.output-box {
+  background: var(--box-bg);
+  border: 1px solid var(--box-border);
+  border-radius: var(--radius-md);
+  padding: 15px;
+  backdrop-filter: blur(8px); /* Frosted glass effect */
+  color: var(--text-light);
+  min-height: 250px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+/* Textarea input (for user notes) */
+textarea {
+  flex-grow: 1;
+  border: none;
+  resize: none;
+  font-size: 15px;
+  outline: none;
+  background: transparent;
+  color: #ffffff;
+  line-height: 1.6;
+}
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.8); 
+}
+
+/* Output section text */
+.output-content {
+  flex-grow: 1;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-light);
+  white-space: pre-wrap; /* Preserve formatting */
+  overflow-y: auto;
+}
+
+/* ================================
+   UPLOAD SECTION
+   For uploading images (like handwritten notes)
+================================ */
+.upload-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 12px 15px;
+  border-radius: var(--radius-md);
+}
+
+#imageUpload {
+  display: none; /* Hidden real input (styled with label) */
+}
+
+/* Custom styled button for file input */
+.custom-file-upload {
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow);
+}
+
+.custom-file-upload:hover {
+  background: #46243f;
+  transform: translateY(-1px);
+}
+
+.image-status {
+  font-size: 13px;
+  color: var(--text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Truncates long text with "..." */
+  flex-grow: 1;
+}
+
+/* ================================
+   CORE ACTION BUTTONS
+   (Summarize, Flashcards, Proofread)
+================================ */
+.button-section {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn {
+  flex-grow: 1;
+  padding: 12px 0;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: var(--text-light);
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================================
+   HEADINGS (like "Translate to:")
+================================ */
+h2 {
+  text-align: center;
+  color: var(--text-light);
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* ================================
+   TRANSLATION LANGUAGE BUTTONS
+   Predefined quick language options
+================================ */
+.language-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.lang-btn {
+  padding: 6px 12px;
+  border: 1px solid #fff;
+  background: rgba(255,255,255,0.1);
+  color: var(--text-light);
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.lang-btn:hover {
+  background: #fff;
+  color: var(--primary-color);
+}
+
+/* ================================
+   CUSTOM LANGUAGE INPUT
+   Lets user type any language manually
+================================ */
+.custom-language {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#customLanguage {
+  flex-grow: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--box-border);
+  border-radius: 20px;
+  font-size: 14px;
+  background: rgba(255,255,255,0.15);
+  color: var(--text-light);
+}
+
+#customLangBtn {
+  flex-grow: 0;
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+/* ================================
+   UTILITY BUTTONS (Clear & Exit)
+================================ */
+.utility-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.utility-btn {
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: var(--shadow);
+}
+
+#refreshBtn {
+  background: var(--secondary-color);
+}
+
+#exitBtn {
+  background: var(--primary-color);
+}
+
+.utility-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.utility-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   Adjusts layout for smaller screens
+================================ */
+@media (max-width: 950px) {
+  body {
+    min-width: 600px;
+    max-width: 100%;
+    padding: 15px;
+  }
+  .input-output-grid {
+    grid-template-columns: 1fr; /* Stacks input & output vertically */
+  }
+  .button-section {
+    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+  }
+  .btn {
+    flex-basis: 48%; /* Two buttons per row */
+  }
+}

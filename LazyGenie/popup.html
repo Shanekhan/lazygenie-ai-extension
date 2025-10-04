@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LazyGenie</title>
+
+    <!-- Origin Trial Tokens (Required for enabling AI API in Chrome) -->
+    <meta http-equiv="origin-trial" content="AtSzVH0gZ5bSEXmhEqoxq1LwhjMikBBMEQ29/Y/D6qF/87MZRnnzw5O7FI3x5cfErMl2YEwg0pvUMJ2l2Xxp0QYAAAB7eyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vbmNvZGxwZWptZWRnbWJwcGJjYWVtaW9ka2pqbmhsb2kiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcmkiOjE3NzQzMTA0MDB9">
+
+    <!-- Importing Google Fonts for better UI design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Linking external stylesheet (all UI styling is handled in style.css) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER SECTION -->
+        <header class="header">
+            <!-- App title with small logo for branding -->
+            <h1> LazyGenie<img src="./assets/load1.png" alt="LazyGenie logo"></h1>
+            <!-- Subtitle sets the theme/vibe of the app -->
+            <p class="subtitle">Vibe check: Passed. Notes, proofreading, and translation made easy.</p>
+        </header>
+
+        <!-- INPUT / OUTPUT AREA -->
+        <div class="input-output-grid">
+            <!-- Input box where user pastes text or notes -->
+            <div class="input-box">
+                <span class="label">Input:</span>
+                <textarea id="inputText" placeholder="Paste your text and notes here..."></textarea>
+            </div>
+
+            <!-- Output box where processed result will be displayed -->
+            <div class="output-box">
+                <span class="label">Output:</span>
+            <div id="outputContent" class="output-content">Output will appear here...</div>
+             </div>
+        </div>
+        
+        <!-- IMAGE UPLOAD (for multimodal input like handwritten notes) -->
+        <div class="upload-section">
+            <!-- Hidden file input (real input is hidden for custom styling) -->
+            <input type="file" id="imageUpload" accept="image/*">
+            
+            <!-- Custom label styled as a button triggers the hidden file input -->
+            <label for="imageUpload" class="custom-file-upload">
+                Choose Image
+            </label>
+            
+            <!-- Shows status message when user uploads an image -->
+            <span id="imageStatus" class="image-status">Upload a photo of notes or any image for...</span>
+        </div>
+        
+        <!-- ACTION BUTTONS: Core features powered by AI -->
+        <div class="button-section">
+            <!-- Summarize: condenses long text into short points -->
+            <button id="summarizeBtn" class="btn"  title="Convert lengthy information into concise bullet points.">Summarize</button>
+            
+            <!-- Flashcards: creates study Q&A cards from notes -->
+            <button id="flashcardBtn" class="btn" title="Generate Q&A flashcards from the provided notes or text.">Flashcards</button>
+            
+            <!-- Proofread: grammar, spelling, and clarity check -->
+            <button id="proofreadBtn" class="btn" title="Check grammar, spelling, and clarity.">Proofread</button>
+        </div>
+
+        <!-- TRANSLATION SECTION -->
+        <div>
+            <h2>Translate to:</h2>
+            
+            <!-- Predefined quick language buttons -->
+            <div class="language-list">
+                <button class="lang-btn" data-lang="Spanish">Spanish</button>
+                <button class="lang-btn" data-lang="French">French</button>
+                <button class="lang-btn" data-lang="German">German</button>
+                <button class="lang-btn" data-lang="Chinese">Chinese</button>
+                <button class="lang-btn" data-lang="Hindi">Hindi</button>
+                <button class="lang-btn" data-lang="Arabic">Arabic</button>
+            </div>
+            
+            <!-- Custom language input (user types any language manually) -->
+            <div class="custom-language">
+                <input type="text" id="customLanguage" placeholder="Type any language (e.g., 'Italian')">
+                <button id="customLangBtn" class="btn">Translate</button>
+            </div>
+        </div>
+        
+        <!-- UTILITY BUTTONS (Clear & Exit) -->
+        <div class="utility-btn-container">
+            <!-- Refresh button clears all inputs and outputs -->
+            <button id="refreshBtn" class="utility-btn" title="Clear All Text and Image">
+                <!-- Refresh icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6h-2c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+            </button>
+            
+            <!-- Exit button closes popup (but saves data) -->
+            <button id="exitBtn" class="utility-btn" title="Close Popup (Saves Content)">
+                <!-- Exit icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M16 9v-4l8 8-8 8v-4h-8v-8h8zm-2 10h-14v-14h14v5h2v-7c0-1.1-.9-2-2-2h-14c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v5z"/></svg>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Linking JS file (handles app logic and AI requests) -->
+    <script src="popup.js"></script>
+</body>
+</html>

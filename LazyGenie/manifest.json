@@ -1,0 +1,38 @@
+{
+  "name": "LazyGenie",
+  "description": "Your ultimate AI sidekick for school and work.",
+  "version": "1.0",
+  "manifest_version": 3, 
+  "author": "Shanzay", 
+
+  "action": {
+  "default_popup": "popup.html",
+  "default_icon": "./assets/genie.png"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+    "icons": {
+    "16": "./assets/genie.png", 
+    "48": "./assets/genie.png", 
+    "128": "./assets/genie.png"
+  },
+
+  "permissions": [
+    "storage",    
+    "scripting"   
+  ],
+
+  "host_permissions": [
+    "https://*.googleapis.com/", 
+    "https://api.promptapi.com/" 
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

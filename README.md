@@ -5,7 +5,7 @@
 
 ---
 
-## 📖 Project Overview  
+## Project Overview  
 
 Students often struggle with information overload, time pressure, and language barriers when studying. Managing notes, summarizing lectures, proofreading essays, and preparing for exams becomes overwhelming.  
 
@@ -13,7 +13,7 @@ Students often struggle with information overload, time pressure, and language b
 
 ---
 
-## 🚀 Features  
+##  Features  
 
 - **Summarization**: Convert lengthy content into concise, structured notes.  
 - **Proofreading**: Grammar, spelling, and clarity checks for essays and assignments.  
@@ -23,7 +23,7 @@ Students often struggle with information overload, time pressure, and language b
 
 ---
 
-## 🛠️ Technical Deep Dive  
+## Technical Deep Dive  
 
 LazyGenie’s architecture leverages **Chrome’s Built-in AI APIs** with a fallback to **Gemini API** for reliability and multimodal support.  
 
@@ -43,7 +43,7 @@ LazyGenie’s architecture leverages **Chrome’s Built-in AI APIs** with a fall
 
 ---
 
-## 📥 Installation & Setup  
+##  Installation & Setup  
 
 ### Prerequisites  
 - **Google Chrome** (latest version with AI API support).  
@@ -64,12 +64,16 @@ LazyGenie’s architecture leverages **Chrome’s Built-in AI APIs** with a fall
 
 6. Pin LazyGenie to your Chrome toolbar for quick access.
 
-## 📦 Submission Details  
+## Submission Details  
 
-- **GitHub Repository:** [LazyGenie AI Extension](https://github.com/Shanekhan/lazygenie-ai-extension/tree/main)  
-- **Demo Video (YouTube):** [Coming Soon]  
-- **Description:** LazyGenie is an AI-powered Chrome Extension that helps students and professionals summarize, proofread, translate, and even generate flashcards from notes and images.  
-- **License:** MIT License  
+**GitHub Repository:** [LazyGenie AI Extension](https://github.com/Shanekhan/lazygenie-ai-extension/tree/main)  
+
+**Demo Video (YouTube):** [https://youtu.be/INlvO29ApJk](https://youtu.be/INlvO29ApJk)  
+
+**Description:** LazyGenie is an AI-powered Chrome Extension that helps students and professionals summarize, proofread, translate, and generate flashcards from notes and images.  
+
+**License:** MIT License  
+
 
 
 💡 Development Feedback

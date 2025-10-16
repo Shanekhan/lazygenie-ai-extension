@@ -5,17 +5,20 @@
  * Handles API calls for LazyGenie Chrome Extension.
  * Acts as the middle layer between popup.js (frontend) and external APIs (Prompt + Gemini).
  */
-
 /**
- * On extension installation:
- * - Preloads API keys into chrome.storage.local so they can be accessed later.
- * - ⚠️ NOTE: Keys are hardcoded here for demo purposes only.
- *   In production, this should be replaced with a secure options page or server-side handling.
+ * ⚠️ Demo Instructions:
+ * This project uses placeholder API keys for security purposes.
+ * To test the extension yourself, replace "YOUR_API_KEY_HERE" with your own valid API keys:
+ *   1. Replace the promptApiKey and geminiApiKey values below with your own keys.
+ *   2. Go to chrome://extensions, enable Developer mode, and click "Load unpacked" → select this extension folder.
+ * The extension will then be fully functional. No backend setup is required for this demo.
  */
+
+ 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.set({
-    promptApiKey: "AtSzVH0gZ5bSEXmhEqoxq1LwhjMikBBMEQ29/Y/D6qF/87MZRnnzw5O7FI3x5cfErMl2YEwg0pvUMJ2l2Xxp0QYAAAB7eyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vbmNvZGxwZWptZWRnbWJwcGJjYWVtaW9ka2pqbmhsb2kiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcmkiOjE3NzQzMTA0MDB9", // Placeholder demo key
-    geminiApiKey: "AIzaSyCR_NwM02L5l95kvoLyBc-YZVNxGeEGeJk"  // Placeholder demo key
+    promptApiKey: "YOUR_API_KEY_HERE", // Placeholder demo key
+    geminiApiKey: "YOUR_API_KEY_HERE" // Placeholder demo key
   });
   console.log('LazyGenie: API keys initialized.');
 });
@@ -158,3 +161,4 @@ async function callGeminiApi(prompt, imageData, apiKey) {
   // Extracts the first candidate's text (if available), otherwise safe fallback.
   return result.candidates?.[0]?.content?.parts?.[0]?.text || "No response text generated.";
 }
+

@@ -63,6 +63,16 @@ LazyGenie’s architecture leverages **Chrome’s Built-in AI APIs** with a fall
 5. Click Load unpacked and select the LazyGenie project folder.
 
 6. Pin LazyGenie to your Chrome toolbar for quick access.
+ 
+7. API Key Setup
+
+⚠️ This project uses placeholder API keys in background.js for demo purposes.
+To test the extension locally, replace "YOUR_API_KEY_HERE" with your own valid API keys:
+
+promptApiKey for Prompt API
+
+geminiApiKey for Gemini API
+
 
 ## Submission Details  
 
